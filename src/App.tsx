@@ -7,8 +7,6 @@ import { DarkTheme, LightTheme, ThemeContextInterface, ThemeInterface } from './
 import { ThemeContext } from './components/themecontext/themecontext';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Header } from './components/header/header';
-import { Home } from './components/home/home';
-import { About } from './components/about/about';
 import { NotFound } from './components/notfound/notfound';
 import { Edit } from './components/edit/edit';
 import { AuthProvider } from './privatelogic/authprovider';
@@ -60,10 +58,8 @@ function App() {
             <Route path="/signupform" element={<Form />} />
             <Route path="/loginform" element={<LoginForm />} />
             <Route path="/main" element={<Header />}>
-            <Route path="home" element={<Home />} />
             <Route path="memes" element={<Memes />} />
             <Route path="memes/:name/edit" element={<RequireAuth><Edit /></RequireAuth>} />
-            <Route path="about" element={<About />} />
             <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
