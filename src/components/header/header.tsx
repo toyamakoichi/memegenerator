@@ -10,9 +10,7 @@ export const Header = () => {
     return (
         <>
             <MyHeader theme={currentTheme.theme}>
-                {/* <Link to="home">Home</Link>
-          <Link to="characters">Characters</Link>
-          <Link to="about">About</Link> */}
+               
           
         
                

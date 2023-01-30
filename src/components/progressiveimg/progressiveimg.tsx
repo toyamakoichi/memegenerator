@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { LoadedImg, LoadingImg } from "./stylesimg";
 
 export const ProgressiveImg = ({ placeholderSrc, src}:any) => {
   const [imgSrc, setImgSrc] = useState(placeholderSrc || src);
@@ -11,14 +12,11 @@ export const ProgressiveImg = ({ placeholderSrc, src}:any) => {
     };
   }, [src]);
 
-  const customClass =
-    placeholderSrc && imgSrc === placeholderSrc ? "loading" : "loaded";
-
   return (
-    <img
-      {...{ src: imgSrc}}
-      
-      className={`${customClass}`}
-    />
+    <div>
+    {
+      placeholderSrc && imgSrc === placeholderSrc ? <LoadingImg {...{ src: imgSrc}}/> : <LoadedImg {...{ src: imgSrc}} />
+    }
+    </div>
   );
 };
