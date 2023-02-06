@@ -11,7 +11,6 @@ import { Button } from "../button/button";
 import SearchIcon from '@mui/icons-material/Search';
 import { MemeItem } from "../memeItem/memeItem"
 import { MemesSpace } from "./memes.styles"
-
 import { Pagination } from "../pagination/pagination";
 import { Input } from "@mui/material";
 import { ThemeContext } from "../themecontext/themecontext";
