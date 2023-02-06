@@ -1,12 +1,13 @@
 import { MyForm } from "./form.styles"
 import { Input } from "../input/input"
 import { Password } from "../password/password"
-import Button from "@mui/material/Button"
+
 import Checkbox from "@mui/material/Checkbox"
-import { FormControlLabel, FormGroup, Switch } from "@mui/material"
+import { FormControlLabel, FormGroup} from "@mui/material"
 import { ThemeContext } from "../themecontext/themecontext"
 import { useEffect, useState, useContext } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
+import { Button } from "../button/button"
 
 
 
@@ -50,7 +51,7 @@ export const Form = () => {
             <FormGroup>
                 <FormControlLabel control={<Checkbox onChange={handleChangeTerms} checked={terms} />} label="Agree to terms and conditions" />
                 <p>Have an account? <NavLink to={"/loginform"}>Log in</NavLink></p>
-                <Button onClick ={handleSignUp} type="submit" variant="contained" disabled={!isValid} fullWidth={true}>Sign up</Button>
+                <Button onClick ={handleSignUp} text="Sign up" disabled={!isValid}/>
             </FormGroup>
         </MyForm>
         </>

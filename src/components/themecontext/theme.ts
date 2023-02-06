@@ -20,5 +20,5 @@ export const DarkTheme: ThemeInterface = {
     type: "dark",
     text: "white",
     border: "2px solid white",
-    background: "gray"
+    background: "black"
 }

@@ -1,9 +1,10 @@
 
-import { Box, Button, Modal, Typography } from "@mui/material";
+import { Box, Modal } from "@mui/material";
 import axios from "axios";
 import saveAs from "file-saver";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom"
+import { Button } from "../button/button";
 import { styles } from "../common/modal.styles";
 import { Input } from "../input/input";
 import { ProgressiveImg } from "../progressiveimg/progressiveimg";
@@ -16,7 +17,7 @@ export const Edit = (props: any) => {
   const [captions, setCaptions] = useState<string[]>([]);
   const [open, setOpen] = useState(false);
   const [memeDatas, setMemeData] = useState('');
- 
+
   const handleOpen = () => {
     setOpen(true);
   }
@@ -30,7 +31,7 @@ export const Edit = (props: any) => {
   }
   const generateMeme = async () => {
     try {
-      
+
       handleOpen();
 
       const formData = new FormData();
@@ -46,7 +47,7 @@ export const Edit = (props: any) => {
         headers: { "Content-Type": "multipart/form-data" },
       })
       setMemeData(memeData.data.data.url);
-      
+
 
     }
     catch {
@@ -65,23 +66,25 @@ export const Edit = (props: any) => {
 
   const downloadImage = async () => {
     const formData = new FormData();
-      formData.append('username', 'asfasfas124124');
-      formData.append('password', 'f9Gpgs7g8CtehGW');
-      formData.append('template_id', currentId);
-      captions.forEach((c, index) => formData.append(`boxes[${index}][text]`, c));
+    formData.append('username', 'asfasfas124124');
+    formData.append('password', 'f9Gpgs7g8CtehGW');
+    formData.append('template_id', currentId);
+    captions.forEach((c, index) => formData.append(`boxes[${index}][text]`, c));
 
-      const memeData = await axios({
-        method: "post",
-        url: "https://api.imgflip.com/caption_image",
-        data: formData,
-        headers: { "Content-Type": "multipart/form-data" },
-      })
-      saveAs(memeData.data.data.url, location.state.id);
+    const memeData = await axios({
+      method: "post",
+      url: "https://api.imgflip.com/caption_image",
+      data: formData,
+      headers: { "Content-Type": "multipart/form-data" },
+    })
+    saveAs(memeData.data.data.url, location.state.id);
   }
   useEffect(() => {
     setCaptions(Array(location.state.boxCount).fill(''));
   }, [currentId])
+  useEffect(() => {
 
+  })
   return (
     <CreateContainer>
       <Modal
@@ -91,10 +94,10 @@ export const Edit = (props: any) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={styles}>
-         <ProgressiveImg placeholderSrc={location.state.image} src={memeDatas} />
+          <ProgressiveImg placeholderSrc={location.state.image} src={memeDatas} />
         </Box>
       </Modal>
-    <MemeContainer>
+      <MemeContainer>
         <MemeImage src={location.state.image} alt="" />
         <div>
           {
@@ -102,9 +105,9 @@ export const Edit = (props: any) => {
           }
         </div>
       </MemeContainer>
-      <Button onClick={generateMeme}>Generate meme</Button>
-      <Button onClick={downloadImage} >Download meme</Button>
-      <Button onClick={goToMemes}>Make more memes</Button>
+      <Button onClick={generateMeme} text="Generate meme" />
+      <Button onClick={downloadImage} text="Download meme" />
+      <Button onClick={goToMemes} text="Make more memes" />
     </CreateContainer>
 
   )

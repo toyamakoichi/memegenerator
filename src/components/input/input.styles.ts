@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 export const MyInput = styled.input`
-width:95%;
+width:100%;
 height:30px;
-padding:3px;
+
 border:1px solid silver;
 border-radius: 2px;
 &:hover{

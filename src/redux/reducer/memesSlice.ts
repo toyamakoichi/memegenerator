@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const initialState = {
   memesArr: [],
   fullMemesList:[],
@@ -15,9 +16,8 @@ const memesSlice = createSlice({
       console.log(state.memesArr);
     },
     filterMemes: (state, action) => {
-      console.log(action.payload.letter);
       state.memesArr = state.fullMemesList;
-      state.memesArr = state.memesArr.filter((meme:any) => meme.name.toLowerCase().startsWith(action.payload.letter));
+      state.memesArr = state.memesArr.filter((meme:any) => action.payload.search.toLowerCase() === '' ? meme : meme.name.toLowerCase().startsWith(action.payload.search));
     },
     showAllMemes: (state) => {
       state.memesArr = state.fullMemesList;

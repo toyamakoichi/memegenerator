@@ -1,7 +1,8 @@
-import { FormGroup, FormControlLabel, Checkbox, Button, Switch } from "@mui/material"
+import { FormGroup} from "@mui/material"
 import { useContext, useEffect, useState } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
 import { AuthContext } from "../../privatelogic/authprovider"
+import { Button } from "../button/button"
 import { MyForm } from "../form/form.styles"
 import { Input } from "../input/input"
 import { Password } from "../password/password"
@@ -31,13 +32,14 @@ export const LoginForm = () => {
     
     return (
         <>
+        
             <MyForm theme={currentTheme.theme}>
-                
+            <h1>Log in</h1>
                 <Input type="email" placeholder="Enter email" text="Email" onChange={(event) => handleChangeEmail(event)} value={email} />
                 <Password placeholder="Enter password" text="Password" onChange={(event) => handleChangePassword(event)} value={password} />
                 <FormGroup>
                     <p>Don't have an account? <NavLink to={"/signupform"}>Sign up</NavLink></p>
-                    <Button onClick={handleLogIn} type="button" variant="contained" disabled={!isValid} fullWidth={true}>Log in</Button>
+                    <Button onClick={handleLogIn} text="Log in" disabled={!isValid} />
                 </FormGroup>
             </MyForm>
         </>

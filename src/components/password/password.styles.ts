@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
 export const MyPassword = styled.input`
-width:95%;
+width:100%;
 height:30px;
-padding:3px;
+
+margin-right:5px;
 border:1px solid silver;
 border-radius: 2px;
 &:hover{

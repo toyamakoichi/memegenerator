@@ -17,7 +17,7 @@ import { addMemes } from './redux/reducer/memesSlice';
 import axios from 'axios';
 function App() {
   const [myTheme, setMyTheme] = useState<ThemeInterface>(LightTheme);
- const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const getMemes = async () => {
     try {
       
