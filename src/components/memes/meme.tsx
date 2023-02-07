@@ -2,7 +2,7 @@
 
 import { useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import { AuthContext } from "../../privatelogic/authprovider";
 import { filterMemes, showAllMemes } from "../../redux/reducer/memesSlice";
@@ -14,6 +14,7 @@ import { MemesSpace } from "./memes.styles"
 import { Pagination } from "../pagination/pagination";
 import { Input } from "@mui/material";
 import { ThemeContext } from "../themecontext/themecontext";
+
 
 
 interface MemeInterface {
@@ -42,7 +43,7 @@ export const Memes = () => {
     const handleLogOut = () => {
         logOut(navigate("/loginform"));
     }
-    const handleChange = (event: any) => {
+    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         setSearch(event.target.value);
         dispatch(filterMemes({ search: event.target.value }));
     }
@@ -55,7 +56,7 @@ export const Memes = () => {
     const prevPage = () => setCurrentPage(prev => prev - 1);
     return (
         <>
-            {user && (
+        {user && (
                 <div>
                     <Button onClick={handleLogOut} text="Log out"></Button>
                 </div>)
@@ -74,6 +75,7 @@ export const Memes = () => {
                 {currentMeme.map((meme: MemeInterface) => <MemeItem name={meme.name} img={meme.url} boxCount={meme.box_count} id={meme.id} key={meme.id}/>)}
             </MemesSpace>
             <Pagination memesPerPage={memesPerPage} totalMemes={memesData.length} paginate={paginate} next={nextPage} prev={prevPage} current={currentPage}/>
+            
         </>
 
 

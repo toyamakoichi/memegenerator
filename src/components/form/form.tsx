@@ -1,13 +1,13 @@
+import { useEffect, useState, useContext } from "react"
+import { NavLink, useNavigate } from "react-router-dom"
 import { MyForm } from "./form.styles"
-import { Input } from "../input/input"
-import { Password } from "../password/password"
 
+import { Password } from "../password/password"
 import Checkbox from "@mui/material/Checkbox"
 import { FormControlLabel, FormGroup} from "@mui/material"
 import { ThemeContext } from "../themecontext/themecontext"
-import { useEffect, useState, useContext } from "react"
-import { NavLink, useNavigate } from "react-router-dom"
 import { Button } from "../button/button"
+import { Input } from "../input/input"
 
 
 
@@ -15,7 +15,6 @@ export const Form = () => {
     const currentTheme = useContext(ThemeContext);
     const navigate = useNavigate();
     const [name, setName] = useState<string>("");
-    
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [terms, setTerms] = useState<boolean>(false);
@@ -44,9 +43,9 @@ export const Form = () => {
         <>
         <MyForm theme={currentTheme.theme}>
             <h1>Sign up</h1>
-            <Input type="text" placeholder="Enter name" text="Name" onChange={(event) => handleChangeName(event)} value={name} />
+            <Input type="text" placeholder="Enter name" text="Name" onChange={(event) => handleChangeName} value={name} />
             
-            <Input type="email" placeholder="Enter email" text="Email" onChange={(event) => handleChangeEmail(event)} value={email} />
+            <Input type="email" placeholder="Enter email" text="Email" onChange={(event) => handleChangeEmail} value={email} />
             <Password placeholder="Enter password" text="Password" onChange={(event) => handleChangePassword(event)} value={password} />
             <FormGroup>
                 <FormControlLabel control={<Checkbox onChange={handleChangeTerms} checked={terms} />} label="Agree to terms and conditions" />

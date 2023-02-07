@@ -1,6 +1,6 @@
-import { FormGroup} from "@mui/material"
 import { useContext, useEffect, useState } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
+import { FormGroup} from "@mui/material"
 import { AuthContext } from "../../privatelogic/authprovider"
 import { Button } from "../button/button"
 import { MyForm } from "../form/form.styles"
@@ -16,10 +16,10 @@ export const LoginForm = () => {
     const [password, setPassword] = useState<string>("");
     const [isValid, setIsValid] = useState<boolean>(false);
   
-    const handleChangeEmail = (event: any) => {
+    const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value);
     };
-    const handleChangePassword = (event: any) => {
+    const handleChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(event.target.value);
     };
     const handleLogIn = () => {

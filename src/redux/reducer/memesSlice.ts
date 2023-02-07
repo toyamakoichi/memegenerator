@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   memesArr: [],
   fullMemesList:[],
+  
 };
 
 const memesSlice = createSlice({

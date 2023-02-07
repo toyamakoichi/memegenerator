@@ -5,8 +5,8 @@ interface MyInputProps {
     type?: string;
     text?: string;
     onChange?: ChangeEventHandler<HTMLInputElement>;
-    value?: any;
-    key?: any;
+    value?: string;
+    key?: number;
 }
 export const Input = ({ placeholder, type, text, onChange, value }: MyInputProps) => {
  return (

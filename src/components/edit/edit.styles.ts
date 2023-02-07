@@ -12,7 +12,6 @@ flex-direction: row;
 `
 export const MemeImage = styled.img`
 height: 650px;
-
 margin: 20px;
 border: 2px solid black;
 `

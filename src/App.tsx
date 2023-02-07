@@ -5,7 +5,7 @@ import { Form } from './components/form/form';
 import { LoginForm } from './components/loginform/loginform';
 import { DarkTheme, LightTheme, ThemeInterface } from './components/themecontext/theme';
 import { ThemeContext } from './components/themecontext/themecontext';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Header } from './components/header/header';
 import { NotFound } from './components/notfound/notfound';
 import { Edit } from './components/edit/edit';
@@ -54,14 +54,14 @@ function App() {
       <ThemeContext.Provider value={{ theme: myTheme, themeSwitch: switchTheme }}>
         <Router>
           <Routes>
-            <Route path="/" element={<Form />} />
+            <Route path="/" element={<Navigate to="/main" />} />
             <Route path="/signupform" element={<Form />} />
             <Route path="/loginform" element={<LoginForm />} />
-            <Route path="/main" element={<Header />}>
+            <Route path="/main" element={<Header/>}>
             <Route path="memes" element={<Memes />} />
             <Route path="memes/:name/edit" element={<RequireAuth><Edit /></RequireAuth>} />
-            <Route path="*" element={<NotFound />} />
             </Route>
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
       </ThemeContext.Provider>

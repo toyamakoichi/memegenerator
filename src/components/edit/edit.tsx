@@ -1,9 +1,8 @@
-
-import { Box, Modal } from "@mui/material";
-import axios from "axios";
-import saveAs from "file-saver";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom"
+import axios from "axios";
+import saveAs from "file-saver";
+import { Box, Modal } from "@mui/material";
 import { Button } from "../button/button";
 import { styles } from "../common/modal.styles";
 import { Input } from "../input/input";
@@ -86,6 +85,8 @@ export const Edit = (props: any) => {
 
   })
   return (
+    <>
+    
     <CreateContainer>
       <Modal
         open={open}
@@ -109,6 +110,6 @@ export const Edit = (props: any) => {
       <Button onClick={downloadImage} text="Download meme" />
       <Button onClick={goToMemes} text="Make more memes" />
     </CreateContainer>
-
+    </>
   )
 }
