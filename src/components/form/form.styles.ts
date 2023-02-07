@@ -7,6 +7,6 @@ background-color:${({theme}) => theme.background};
 width: 500px;
 border-radius:10px;
 padding: 30px 50px;
-border: 3px solid black;
+border: ${({theme}) => theme.border};
 color:${({theme}) => theme.text};
 `

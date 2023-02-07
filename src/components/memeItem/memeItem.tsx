@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ThemeContext } from "../themecontext/themecontext";
 import { Card, MemeText } from "./memeItem.styles";
 
